@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,9 +39,21 @@ public class ProfilServlet extends HttpServlet {
 		String telephone = request.getParameter("telephone");
 		String password = request.getParameter("password");
 		String photo = request.getParameter("photo");
-		String descirption = request.getParameter("description");
+		String description = request.getParameter("description");
 		
-		doGet(request, response);
+		Utilisateur u = new Utilisateur();
+		u.setNom(prenom);
+		u.setNom(prenom);
+		u.setEmail(email);
+		u.setTelephone(telephone);
+		u.setMotDePasse(password);
+		u.setDesciption(description);
+		
+		
+		// Méthode qui modifie les infos dans la bdd
+		
+		
+		
 	}
 
 }

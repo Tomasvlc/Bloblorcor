@@ -5,19 +5,21 @@ public class Utilisateur {
 		private String email;
 		private String motDePasse;
 		private String telephone;
+		private String description;
 		
 		public Utilisateur()
 		{
 			super();
 		}
 		
-		public Utilisateur(int id, String nom, String email, String motDePasse, String telephone) {
+		public Utilisateur(int id, String nom, String email, String motDePasse, String telephone, String description) {
 			super();
 			this.id = id;
 			this.nom = nom;
 			this.email = email;
 			this.motDePasse = motDePasse;
 			this.telephone = telephone;
+			this.description = description;
 			
 		}
 
@@ -83,6 +85,10 @@ public class Utilisateur {
 
 		public void setTelephone(String telephone) {
 			this.telephone = telephone;
+		}
+		
+		public void setDesciption(String description) {
+			this.description = description;
 		}
 		
 	}

@@ -24,7 +24,15 @@ public class HistoriqueServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		Reservation reservation1 = ReservationManager.  (); // Methode pour récupérer les infos du trajet par la requete
+		request.setAttribute("date", date); // Identification de l'attribut à modifier
+		request.setAttribute("nom", nom); 
+		request.setAttribute("prenom", prenom); 
+		request.setAttribute("heure", heure); 
+		request.setAttribute("telephone", telephone); 
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/historique.jsp").forward(request,  response);
 	}
 
 	/**
