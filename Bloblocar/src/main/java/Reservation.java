@@ -5,6 +5,9 @@ public class Reservation {
 	private int trajetId;
 	private String statut;
 	
+	public Reservation() {
+		
+	}
 	public Reservation(int id, int passagerId, int trajetId, String statut) {
 		super();
 		this.id = id;
