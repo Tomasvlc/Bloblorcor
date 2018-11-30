@@ -1,0 +1,92 @@
+ requetes covoiturage
+ 
+Bases:
+
+users : id, nom, prenom, description, photoid, infosCB, mdp, email, numerodetel
+trajets : id, hdepart, depart, arrivee, tarif, conducteurid, placesDisponibles, jour, statut
+trajetsDemandes: id, hdepart, depart, arrivee, userid, nbpassagersDemande, jour, statut
+reservations: id, trajetid, conducteurid, passagerid, statut
+photos; id, userid, url
+
+--------------------------------------------------------------------
+SELECTIONNER l'email d'un utilisateur:
+
+SELECT email FROM users WHERE id=1
+
+-------------------------------------------
+
+MODIFIER PROFIL:
+
+1/modifier le nom d'un utilisateur
+
+ UPDATE users SET nom = 'dupontdupont' WHERE id=1 
+
+
+2/modifier les infos CB d'un utilisateur
+
+UPDATE users SET infosCB = '5456415' WHERE id=2 
+
+----------------------------
+INSERER USERS:
+
+INSERT INTO users (prenom, nom, email)
+ VALUES
+ ('Rébecca', 'Armand', 'rebecca@gmail.com'),
+ ('Aimée', 'Hebert', 'aimee@gmail.com'),
+ ('Marielle', 'Ribeiro', 'marielle@gmail.com'),
+ ('Hilaire', 'Savary', 'hilaire@gmail.com');
+
+--------------------------------------------------------------------------
+INSERER TRAJETS:
+
+INSERT INTO trajets (hdepart, depart, arrivee, tarif, conducteurid, placesDisponibles, jour, statut) 
+VALUES ('00:09:00', 'bruxelles', 'waterloo', 30, 4, 3, '2018-12-05', 'incomplet') 
+
+---------------------
+MODIFIER UN TRAJET:
+
+UPDATE trajets SET depart = 'marseille', arrivee = 'nice' WHERE id=4
+
+
+MODIFIER STATUT D'UN TRAJET: 
+
+UPDATE trajets SET statut = 'incomplet' WHERE id=2;
+
+--------------------------------------------------------------------------------
+INSERER UNE RESERVATION :
+
+INSERT INTO reservations (trajetid, passagerid)
+ VALUES
+ (4,5);
+
+------------------------
+MODIFIER STATUT D'UNE RESERVATION:
+
+UPDATE reservations SET statut = 'a venir' WHERE id=4
+
+----------------------------------------------------------------------------------
+RECHERCHER UN TRAJET :
+
+SELECT * FROM `trajets` WHERE depart='lille' AND arrivee='paris'
+
+------------------------------------------------------------------------------------
+SELECTIONNE TOUTES LES RESERVATIONS PASSAGERS:
+
+SELECT trajets.id, trajets.depart, trajets.arrivee, users.id
+FROM users, trajets, reservations
+WHERE reservations.passagerid = users.id AND reservations.trajetid= trajets.id AND users.id = reservations.passagerid ORDER BY trajets.id
+
+-----------------------------------
+SELECTIONNE TOUTES LES RESERVATIONS CONDUCTEUR:
+
+SELECT trajets.id, trajets.depart, trajets.arrivee, users.id FROM users, trajets, reservations 
+WHERE reservations.conducteurid = users.id AND reservations.trajetid= trajets.id AND users.id = reservations.conducteurid ORDER BY trajets.id 
+
+------------------------------------------------------------------------------------
+SELECTIONNE TOUS LES TRAJETS DEMANDES PAR TOUS LES UTILISATEURS:
+
+SELECT trajetsDemandes.id, trajetsDemandes.depart, trajetsDemandes.arrivee, users.id
+FROM users, trajetsDemandes
+WHERE trajetsDemandes.userid =users.id
+AND users.id = trajetsDemandes.userid
+ORDER BY trajetsDemandes.id
