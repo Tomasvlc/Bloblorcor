@@ -2,16 +2,26 @@
 public class Reservation {
 	private int id;
 	private int passagerId;
+	private String nomPassager;
+	private String prenomPassager;
+	private int conducteurId;
+	private String nomPassager;
+	private String prenomPassager;
 	private int trajetId;
 	private String statut;
 	
-	public Reservation(int id, int passagerId, int trajetId, String statut) {
+	public Reservation() {
+		
+	}
+	public Reservation(int id, int passagerId,int conducteurId, int trajetId, String statut) {
 		super();
 		this.id = id;
 		this.passagerId = passagerId;
 		this.trajetId = trajetId;
 		this.statut = statut;
+		this.setConducteurId(conducteurId);
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -42,6 +52,12 @@ public class Reservation {
 
 	public void setStatut(String statut) {
 		this.statut = statut;
+	}
+	public int getConducteurId() {
+		return conducteurId;
+	}
+	public void setConducteurId(int conducteurId) {
+		this.conducteurId = conducteurId;
 	}
 
 

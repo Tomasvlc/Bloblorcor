@@ -1,21 +1,27 @@
+import java.sql.Time;
 import java.util.Date;
 
 public class Trajet {
 	private int idTrajet;
 	private String depart;
 	private String arrive;
-	private Date heureDepart;
+	private Time heureDepart;
+	private Date jour;
 	private int prix;
 	
-	public Trajet(int idTrajet, String depart, String arrive, Date heureDepart, int prix) {
+	public Trajet() {
+		
+	}
+	public Trajet(int idTrajet, String depart, String arrive, Date jour,Time heureDepart, int prix) {
 		super();
 		this.idTrajet = idTrajet;
 		this.depart = depart;
 		this.arrive = arrive;
 		this.heureDepart = heureDepart;
 		this.prix = prix;
+		this.setJour(jour);
 	}
-
+	
 	public int getIdTrajet() {
 		return idTrajet;
 	}
@@ -40,12 +46,11 @@ public class Trajet {
 		this.arrive = arrive;
 	}
 
-	public Date getHeureDepart() {
+	public Time getHeureDepart() {
 		return heureDepart;
 	}
 
-	public void setHeureDepart(Date heureDepart) {
-		this.heureDepart = heureDepart;
+	public void setHeureDepart(Time heureDepart) {
 	}
 
 	public int getPrix() {
@@ -54,6 +59,12 @@ public class Trajet {
 
 	public void setPrix(int prix) {
 		this.prix = prix;
+	}
+	public Date getJour() {
+		return jour;
+	}
+	public void setJour(Date jour) {
+		this.jour = jour;
 	}
 	
 }

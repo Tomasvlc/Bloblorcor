@@ -25,7 +25,7 @@ public class ProfilServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.getServletContext().getRequestDispatcher("/WEB-INF/profil.jsp").forward(request,  response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -33,6 +33,7 @@ public class ProfilServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		String nom = request.getParameter("name");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
@@ -54,6 +55,9 @@ public class ProfilServlet extends HttpServlet {
 		
 		
 		
+=======
+		doGet(request, response);
+>>>>>>> 0aef54cc2cb1269c703c82aa7dfb442fc20204ac
 	}
 
 }

@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,10 @@ public class NewTrajetServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String email = request.getParameter("email");
+		String depart = request.getParameter("depart");
+		String arrive = request.getParameter("arrive");
+		Time heureDepart = request.getParameter("heureDepart");
 		doGet(request, response);
 	}
 
