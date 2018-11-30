@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -52,16 +53,47 @@ public class ReservationManager {
 			resultat = statement.executeQuery(query); // On crée la requête et on l'execute 
 			// resultat contient le résultat de la requête, on boucle dessus pour récupérer toutes les réponses
 			while (resultat.next()) {
-				r = new Reservation (resultat.getInt("id"),resultat.getInt("passagerId"),resultat.getInt("trajetId"),resultat.getString("Statut"));
+				r = new Reservation (resultat.getInt("id"),resultat.get("passagerId"),resultat.getInt("conducteurId"),resultat.getInt("trajetId"),resultat.getString("Statut"));
 			}
 		} catch (SQLException e) {
 			// On gère les exceptions
 			e.printStackTrace();
 		}
-//2balle
-		
 		// Une fois que tout est fait, on renvoit la collection
 		disconnectFromDatabase();
 		return r;
 	}
+	public static Reservation insertReservation(Reservation aInserer) {
+			connectToDatabase();
+		
+		String query = "";
+		
+		try {
+			PreparedStatement p = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			p.setInt(1, aInserer.getPassagerId());
+			p.setInt(2,  aInserer.getTrajetId());
+			p.setInt(3, aInserer.getConducteurId());
+			p.setString(4, aInserer.getStatut());
+			
+			int nbLignes = p.executeUpdate();
+			
+			if (nbLignes > 0)
+			{
+				ResultSet generatedKeys = p.getGeneratedKeys();
+				
+				if (generatedKeys.next()) {
+					String id = generatedKeys.getString(1);
+					aInserer.setId(Integer.parseInt(id));
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		disconnectFromDatabase();
+		return aInserer;
+	}
+	
 }

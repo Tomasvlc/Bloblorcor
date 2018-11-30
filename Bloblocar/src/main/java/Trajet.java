@@ -46,7 +46,7 @@ public class Trajet {
 		this.arrive = arrive;
 	}
 
-	public Date getHeureDepart() {
+	public Time getHeureDepart() {
 		return heureDepart;
 	}
 
