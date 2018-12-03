@@ -6,13 +6,13 @@ public class Trajet {
 	private String depart;
 	private String arrive;
 	private String heureDepart;
-	private Date jour;
+	private java.sql.Date jour;
 	private int prix;
 	
 	public Trajet() {
 		
 	}
-	public Trajet(int idTrajet, String depart, String arrive, Date jour,String heureDepart, int prix) {
+	public Trajet(int idTrajet, String depart, String arrive, java.sql.Date jour,String heureDepart, int prix) {
 		super();
 		this.idTrajet = idTrajet;
 		this.depart = depart;
@@ -60,10 +60,10 @@ public class Trajet {
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
-	public Date getJour() {
+	public java.sql.Date getJour() {
 		return jour;
 	}
-	public void setJour(Date jour) {
+	public void setJour(java.sql.Date jour) {
 		this.jour = jour;
 	}
 	

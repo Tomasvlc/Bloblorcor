@@ -38,13 +38,13 @@ public class NewTrajetServlet extends HttpServlet {
 		String depart = request.getParameter("depart");
 		String arrivee = request.getParameter("arrivee");
 		String hdepart = request.getParameter("hdepart");
-		String jour = request.getParameter("jour");
-		String prix = request.getParameter("prix");
+		//String jour = request.getParameter("jour");
+		//String prix = request.getParameter("prix");
 		
 		Trajet t = new Trajet();
 		t.setDepart(depart);
 		t.setArrive(arrivee);
-		t.setHeureDepart(hdepart);
+		//t.setHeureDepart(hdepart);
 		
 		t = TrajetManager.insertTrajet(t);
 		
