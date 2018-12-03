@@ -27,7 +27,7 @@
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#" class="">Accueil</a></li>
 							   <li class="active"><a href="../PageRechercheDeTrajet/Recherche_de_trajet.html">Rechercher un trajet</a></li>
-							   <li class="active"><a href="../PageRechercheDeTrajet/New_Trajet.html">Créer un nouveau trajet</a></li>
+							   <li class="active"><a href="../PageRechercheDeTrajet/New_Trajet.html">Crï¿½er un nouveau trajet</a></li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
 							   <li class="active"><a href="#" class="">Inscription</a></li>
@@ -39,22 +39,22 @@
 						<div id="login" class="panel panel-primary container">
 							<div class="panel-heading"><h3 class="panel-title"><strong> Identification</strong></h3></div>
 							  <div class="panel-body">
-								<form id="frm-login" method="post" action="./ConnexionServlet">
+								<form id="frm-login" class="form-horizontal" action="/Bloblocar/ConnexionServlet" method="POST">
 									<fieldset>
 										<div class="form-group">
 										  <label class="control-label" for="emailUtilisateur"><span class="glyphicon glyphicon-user"></span> Email</label>  
-										  <a class="pull-right" href="#">Créer un compte</a>
+										  <a class="pull-right" href="#">Crï¿½er un compte</a>
 										  <div>
-											<input id="emailUtilisateur" name="email" type="mail" placeholder="Entrez votre email" class="form-control input-md" required="">
+											<input id="emailUtilisateur" name="emailUtilisateur" type="mail" placeholder="Entrez votre email" class="form-control input-md" required="">
 										  </div>
 										</div>
 
 										<!-- Password input-->
 										<div class="form-group">
 										  <label class="control-label" for="mdp"><span class="glyphicon glyphicon-lock"></span> Mot de passe</label>
-										  <a class="pull-right" href="#">Mot de passe oublié</a>
+										  <a class="pull-right" href="#">Mot de passe oubliï¿½</a>
 										  <div>
-											<input id="mdp" name="motDePasse" type="password" placeholder="Entrez votre mot de passe" class="form-control input-md" required="">
+											<input id="mdp" name="mdp" type="password" placeholder="Entrez votre mot de passe" class="form-control input-md" required="">
 										  </div>
 										</div>
 										<!-- Button -->
@@ -73,5 +73,7 @@
 				</nav>
 			</div>
 		</div>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	</body>
 </html>
