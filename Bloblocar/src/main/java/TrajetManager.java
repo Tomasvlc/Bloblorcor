@@ -69,15 +69,16 @@ public class TrajetManager {
 	{
 		connectToDatabase();
 		
-		String query = "INSERT INTO trajets(depart,arrivee) VALUES (?,?)";
+		String query = "INSERT INTO trajets(depart,arrivee,hdepart) VALUES (?,?,?)";
 		
 		try {
 			PreparedStatement p = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			p.setString(1, aInserer.getDepart());
 			p.setString(2,  aInserer.getArrive());
 			p.setString(3, aInserer.getHeureDepart());
-			p.setDate(4, aInserer.getJour());
-			p.setInt(5, aInserer.getPrix());
+			
+			//p.setDate(4, aInserer.getJour());
+			//p.setInt(5, aInserer.getPrix());
 			
 			int nbLignes = p.executeUpdate();
 			

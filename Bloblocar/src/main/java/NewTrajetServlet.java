@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.jni.Time;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * Servlet implementation class NewTrajetServlet
@@ -38,13 +40,23 @@ public class NewTrajetServlet extends HttpServlet {
 		String depart = request.getParameter("depart");
 		String arrivee = request.getParameter("arrivee");
 		String hdepart = request.getParameter("hdepart");
-		//String jour = request.getParameter("jour");
-		//String prix = request.getParameter("prix");
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
+		java.util.Date date = new java.util.Date();
+		try {
+		 date = sdf.parse(hdepart);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//Time tDepart = Time.valueOf(hdepart);
+		String jour = request.getParameter("jour");
+		String prix = request.getParameter("prix");
 		
 		Trajet t = new Trajet();
 		t.setDepart(depart);
 		t.setArrive(arrivee);
-		//t.setHeureDepart(hdepart);
+		t.setHeureDepart(date);
 		
 		t = TrajetManager.insertTrajet(t);
 		

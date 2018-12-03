@@ -4,19 +4,19 @@ import java.util.Date;
 public class Trajet {
 	private int idTrajet;
 	private String depart;
-	private String arrive;
-	private String heureDepart;
+	private String arrivee;
+	private java.util.Date heureDepart;
 	private java.sql.Date jour;
 	private int prix;
 	
 	public Trajet() {
 		
 	}
-	public Trajet(int idTrajet, String depart, String arrive, java.sql.Date jour,String heureDepart, int prix) {
+	public Trajet(int idTrajet, String depart, String arrivee, java.sql.Date jour,Date heureDepart, int prix) {
 		super();
 		this.idTrajet = idTrajet;
 		this.depart = depart;
-		this.arrive = arrive;
+		this.arrivee = arrivee;
 		this.heureDepart = heureDepart;
 		this.prix = prix;
 		this.setJour(jour);
@@ -39,18 +39,19 @@ public class Trajet {
 	}
 
 	public String getArrive() {
-		return arrive;
+		return arrivee;
 	}
 
-	public void setArrive(String arrive) {
-		this.arrive = arrive;
+	public void setArrive(String arrivee) {
+		this.arrivee = arrivee;
 	}
 
-	public String getHeureDepart() {
+	public Date getHeureDepart() {
 		return heureDepart;
 	}
 
-	public void setHeureDepart(String heureDepart) {
+	public void setHeureDepart(Date heureDepart) {
+		this.heureDepart = heureDepart;
 	}
 
 	public int getPrix() {

@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-group col-md-6">
 				  <label for="inputPassword4">Point d'arrivé</label>
-				  <input name="arrive" type="text" id="inputPointDArrivé" class="form-control"  placeholder="Point de d'arrivé" autocomplete="off">
+				  <input name="arrivee" type="text" id="inputPointDArrivé" class="form-control"  placeholder="Point de d'arrivé" autocomplete="off">
 				</div>
 			  </div>
 				<div class="form-row">
@@ -68,12 +68,12 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="inputState">Heure de départ</label>
-						<select id="inputState" class="form-control" name="heureDepart">
+						<select id="inputState" class="form-control" name="hdepart">
 							<option selected>Choisir...</option>
-							<option>17h</option>
-							<option>18h</option>
-							<option>19h</option>
-							<option>20h</option>
+							<option>17:00</option>
+							<option>18:00</option>
+							<option>19:00</option>
+							<option>20:00</option>
 						</select>
 					</div>
 					<div class ="form-group col-md-4">
